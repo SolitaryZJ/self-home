@@ -78,7 +78,6 @@ const experience = [
 
 function App() {
   const canvasRef = useRef(null);
-  const heroRef = useRef(null);
 
   const headlineWords = useMemo(
     () => ['AI 工程化', '高并发架构', '分布式系统', '企业级交付'],
@@ -222,7 +221,7 @@ function App() {
   }, []);
 
   return (
-    <div className="page" ref={heroRef}>
+    <div className="page">
       <main>
         <section className="hero section-shell">
           <div className="hero-content">
@@ -334,3 +333,4 @@ function App() {
 }
 
 export default App;
+

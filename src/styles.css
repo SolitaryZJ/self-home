@@ -5,9 +5,11 @@
 :root {
   color-scheme: dark;
   --bg: #07111f;
+  --bg-deep: #040913;
   --panel: #0e1b2f;
   --panel-soft: rgba(14, 27, 47, 0.72);
   --line: rgba(230, 237, 247, 0.12);
+  --line-strong: rgba(230, 237, 247, 0.2);
   --text: #e6edf7;
   --muted: #9fb0c6;
   --blue: #74c7ff;
@@ -23,9 +25,10 @@ body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background:
-    radial-gradient(circle at top, rgba(116, 199, 255, 0.16), transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.16), transparent 22%),
-    var(--bg);
+    radial-gradient(circle at top, rgba(116, 199, 255, 0.16), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(139, 92, 246, 0.16), transparent 20%),
+    radial-gradient(circle at 50% 90%, rgba(34, 197, 94, 0.08), transparent 24%),
+    linear-gradient(180deg, var(--bg), var(--bg-deep));
   color: var(--text);
 }
 
@@ -69,6 +72,7 @@ a {
   border-radius: 999px;
   color: var(--muted);
   background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .hero-title {
@@ -76,7 +80,8 @@ a {
   font-family: 'Space Grotesk', 'Inter', sans-serif;
   font-size: clamp(3.4rem, 8vw, 6.8rem);
   line-height: 0.92;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
 }
 
 .hero-title .line {
@@ -92,6 +97,7 @@ a {
 
 .hero-title .accent {
   color: var(--blue);
+  text-shadow: 0 0 24px rgba(116, 199, 255, 0.2);
 }
 
 .hero-copy {
@@ -116,7 +122,7 @@ a {
   padding: 0 20px;
   border-radius: 999px;
   border: 1px solid transparent;
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
 }
 
 .button:hover,
@@ -128,6 +134,7 @@ a {
   background: linear-gradient(135deg, var(--blue), var(--purple));
   color: #03101d;
   font-weight: 700;
+  box-shadow: 0 12px 30px rgba(116, 199, 255, 0.18);
 }
 
 .button.ghost {
@@ -146,8 +153,9 @@ a {
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: var(--panel-soft);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
   backdrop-filter: blur(18px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .metric strong {
@@ -174,6 +182,27 @@ a {
     radial-gradient(circle at 50% 35%, rgba(116, 199, 255, 0.12), transparent 35%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.hero-visual::before,
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  inset: 18px;
+  border-radius: 28px;
+  pointer-events: none;
+}
+
+.hero-visual::before {
+  border: 1px solid rgba(230, 237, 247, 0.08);
+}
+
+.hero-visual::after {
+  inset: auto 20px 20px auto;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.18), transparent 68%);
+  filter: blur(8px);
 }
 
 .hero-visual canvas {
@@ -241,8 +270,9 @@ a {
   padding: 22px;
   border-radius: 24px;
   border: 1px solid var(--line);
-  background: var(--panel-soft);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015));
   backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .card h3 {
@@ -286,11 +316,23 @@ a {
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 24px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 24px;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(116, 199, 255, 0.45), transparent);
 }
 
 .timeline-meta {
   display: grid;
   gap: 6px;
+  padding-left: 24px;
 }
 
 .timeline-meta strong {
