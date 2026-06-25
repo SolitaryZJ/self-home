@@ -229,7 +229,7 @@ function App() {
             <h1 className="hero-title">
               <span className="line">张杰</span>
               <span className="line subtle">Java / Golang / Python</span>
-              <span className="line accent">架构师</span>
+              <span className="line accent">工程师</span>
             </h1>
             <p className="hero-copy">
               10 年软件开发与架构设计经验，长期专注高并发分布式系统、性能优化、服务治理与稳定性保障。
